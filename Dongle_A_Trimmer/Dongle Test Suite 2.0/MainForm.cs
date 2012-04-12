@@ -5,6 +5,9 @@
 // Module B-Test and Load.
 //==========================================================================================================
 // 20120412 |  1.1.1  | Nino Liu   |  TE released newly version for dongle 2 station test.
+//----------------------------------------------------------------------------------------------------------
+// 20120412 |  1.1.2  | Nino Liu   |  [Debug] Changed a declared Trimmer class to Trimmer_NI4882 class and 
+//                                 |  counter's predicate.
 //==========================================================================================================
 
 using System;
@@ -234,7 +237,7 @@ namespace Dongle_Test_Suite_2._1
             {
                 try
                 {
-                    Trimmer.testtrimmerisattached(parameters.counter_id);
+                    Trimmer_NI4882.testtrimmerisattached(parameters.counter_id);
                 }
                 catch (Exception exc)
                 {
@@ -262,7 +265,7 @@ namespace Dongle_Test_Suite_2._1
         public void ReadCounterID()
         {
 //            if (CounterID.Text.Length != null && CounterID.Text.Length <= 2 )
-            if(parameters.counter_id != null )
+            if(parameters.counter_id != 0 )
             {
                 UpdateOutputText("Set counter ID.");
                 System.Threading.Thread.Sleep(50);
@@ -357,7 +360,7 @@ namespace Dongle_Test_Suite_2._1
             {
                 System.Threading.Thread.Sleep(50);  //added in because first ZTC packet in trimming wasn't getting a response, prob bc ZTC was still booting
                 UpdateOutputText("Calculating optimal crystal trim values...");
-                Trimmer trimmer = new Trimmer(parameters, thisUSB);  //trimmer_NI4882 uses the ssl to trim, not ztc.
+                Trimmer_NI4882 trimmer = new Trimmer_NI4882(parameters, thisUSB);  //trimmer_NI4882 uses the ssl to trim, not ztc.
                 trimmer.Run();                      //Communicates with the frequency counter via GPIB connection to take frequency measurements and adjust the trim values until frequency is close to 12 MHz.
             }
             else if (parameters.lookinguptrimsbool)
@@ -371,7 +374,7 @@ namespace Dongle_Test_Suite_2._1
             //if set to measure the freqency once (presumably after setting looked-up or default trims), do so.
             if (parameters.checkingfreqafternottrimmingbool)
             {
-                Trimmer trimmer = new Trimmer(parameters, thisUSB);
+                Trimmer_NI4882 trimmer = new Trimmer_NI4882(parameters, thisUSB);
                 trimmer.TakeSingleMeasurement();
             }
 
@@ -383,26 +386,13 @@ namespace Dongle_Test_Suite_2._1
         }
         private void RadioTest()
         {
-            //FTDIdevice referenceRadio = new FTDIdevice(parameters);5
-            //referenceRadio.OpenPort(parameters.reference_radio_pid);  //would it be possible to do this once and leave it open between tests?
-            //referenceRadio.Close();
-            //referenceRadio.OpenPort(parameters.reference_radio_pid);  
-            //try
-            //{
             UpdateOutputText("Testing radio communication quality...");
             RadioTester radiotest = new RadioTester(parameters, thisUSB, referenceRadio);
             parameters.radioTestsuccesses = radiotest.RunRadioTest(parameters.numberofradiotestsEachWay);
             parameters.radiotestsuccesspercent = 100 * parameters.radioTestsuccesses / (2 * parameters.numberofradiotestsEachWay);  //do i need to cast these as doubles?
-            parameters.radiotestsuccesspercentstring = parameters.radiotestsuccesspercent.ToString();
-            //referenceRadio.Close();  //possible to only do this on formclosing?  see comment above at opening
+            parameters.radiotestsuccesspercentstring = parameters.radiotestsuccesspercent.ToString();          
 
             UpdateProgressBar_Overall(55);
-            //}
-            //catch (Exception ex)
-            //{
-            //    referenceRadio.Close();  //If an error is thrown, we want to close the reference radio so we can reopen it next time.
-            //    throw ex;
-            //}
         }
         public void LoadFirmware()
         {
@@ -574,98 +564,7 @@ namespace Dongle_Test_Suite_2._1
             // Must be on the UI thread if we've got this far
             System.Windows.Forms.Application.DoEvents();
         }
-        //private void ReadSettingsFile()
-        //{
-        //    StreamReader SR;
-        //    string S;
-        //    SR = File.OpenText(Parameters.settingsfilepath);
-        //    while (true)
-        //    {
-        //        S = SR.ReadLine();
-        //        if (S.Contains("END SETTINGS FILE")) break;
-                
 
-        //        switch (S)
-        //        {
-        //            case Parameters.SettingsString_testingbool:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//"))
-        //                {
-        //                    if (S == "true") parameters.testing = true;
-        //                    else if (S == "false") parameters.testing = false;
-        //                    else throw new Exception("The \"" + Parameters.SettingsString_testingbool + "\" line in settings file must say either true or false, no spaces.");
-        //                }
-        //                break;
-        //            case Parameters.SettingsString_loadingbool:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//"))
-        //                {
-        //                    if (S == "true") parameters.loading = true;
-        //                    else if (S == "false") parameters.loading = false;
-        //                    else throw new Exception("The \"" + Parameters.SettingsString_loadingbool + "\" line in settings file must say either true or false, no spaces.");
-        //                }
-        //                break;
-        //            case Parameters.SettingsString_USBUnderTestPID:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//")) parameters.USB_under_test_pid = Convert.ToUInt32(S,16);//Convert.ToUInt32(String.Format("{0:X}", Convert.ToUInt32(S)));
-        //                break;
-        //            case Parameters.SettingsString_RefRadioPID:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//")) parameters.reference_radio_pid= Convert.ToUInt32(S,16);
-        //                break;
-        //            case Parameters.SettingsString_finalPID:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//")) parameters.finalPID = Convert.ToUInt32(S,16);
-        //                break;
-        //            case Parameters.SettingsString_PIDtoavoidopening:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//")) parameters.PIDtoavoidopening = Convert.ToUInt32(S, 16);
-        //                break;
-        //            case Parameters.SettingsString_trimmingbool:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//"))
-        //                {
-        //                    if (S == "true") parameters.crystaltrimming = true;
-        //                    else if (S == "false") parameters.crystaltrimming = false;
-        //                    else throw new Exception("The \"" + Parameters.SettingsString_trimmingbool + "\" line in settings file must say either true or false, no spaces.");
-        //                }
-        //                break;
-        //            case Parameters.SettingsString_numberofradiotestsEachWay:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//")) parameters.numberofradiotestsEachWay = Convert.ToInt32(S);
-        //                break;
-        //            case Parameters.SettingsString_ZTCfilename:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//")) parameters.ZTCfilename = S;
-        //                break;
-        //            case Parameters.SettingsString_SSLfilename:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//")) parameters.SSLfilename = S;
-        //                break;
-        //            case Parameters.SettingsString_FWimagefilename:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//")) parameters.FWimagefilename = S;
-        //                break;
-        //            case Parameters.SettingsString_takingFWfilenamefromsettingsfile:
-        //                S = SR.ReadLine();
-        //                if (S != "" && !S.StartsWith("//"))
-        //                {
-        //                    if (S == "true") parameters.takingFWfilenamefromsettingsfile = true;
-        //                    else if (S == "false") parameters.takingFWfilenamefromsettingsfile = false;
-        //                    else throw new Exception("The \"" + Parameters.SettingsString_takingFWfilenamefromsettingsfile + "\" line in settings file must say either true or false, no spaces.");
-        //                }
-        //                break;
-        //        }
-        //    }
-        //    parameters.ZTCfilepath = Parameters.testingfilepath + "\\" + parameters.ZTCfilename;
-        //    parameters.SSLfilepath = Parameters.loadingfilepath + "\\" + parameters.SSLfilename;
-        //    parameters.FWimagefilepath = Parameters.loadingfilepath + "\\" + parameters.FWimagefilename;
-
-        //    if (parameters.testing && parameters.loading) parameters.testingandorloading = "Testing+Loading";
-        //    else if (parameters.testing) parameters.testingandorloading = "Testing_Only";
-        //    else if (parameters.loading) parameters.testingandorloading = "Loading_Only";
-        //    else throw new Exception("Program is set to neither test nor load this USB.  Change options in Settings.txt file.");
-        //}
         public void SelectScannerInputBox(string value)
         {
             if (InvokeRequired)
@@ -752,68 +651,5 @@ namespace Dongle_Test_Suite_2._1
             else RunButton.Enabled = false;
             System.Windows.Forms.Application.DoEvents();
         }
-
-
-        //Barcode scanning from old program:
-        //string ScanBarcode()
-        //{
-        //    string settingsfilepath = directorystring + "Settings.txt";
-        //    StreamReader SR = File.OpenText(@settingsfilepath);
-        //    string s = SR.ReadToEnd();
-        //    int rangebottomindex = s.IndexOf("MAC range from 0x804F58") + 23;
-        //    int rangetopindex = s.IndexOf("to 0x804F58") + 11;
-        //    Int64 rangebottom = Int64.Parse(s.Substring(rangebottomindex, 10), System.Globalization.NumberStyles.HexNumber);
-        //    Int64 rangetop = Int64.Parse(s.Substring(rangetopindex, 10), System.Globalization.NumberStyles.HexNumber);
-
-        //    if (textBox1.Text.Length < 16)
-        //    {
-        //        Output.Text = "Please Scan Barcode.";
-        //        textBox1.Select();
-        //        System.Windows.Forms.Application.DoEvents();
-        //    }
-
-        //    int x = 0;
-        //    string Mac = null;
-        //    string CandidateMac = null;
-
-        //    while (x < 400)
-        //    {
-        //        System.Windows.Forms.Application.DoEvents();
-        //        CandidateMac = textBox1.Text.ToUpper();  // Candidate mac address is whatever's in the text box (but change it to uppercase for consistency)
-
-        //        if (CandidateMac.Length == 16)  // if 16 digits have been entered
-        //        {
-        //            x = 10000;           // break out of loop next time around
-        //            if (CandidateMac.StartsWith(MacHeader))  // and if the first 3 bytes are our MAC header
-        //            {
-        //                Int64 num = Int64.Parse(CandidateMac.Substring(6, 10), System.Globalization.NumberStyles.HexNumber);
-        //                if (num >= rangebottom && num <= rangetop)
-        //                {
-        //                    StreamReader testTxt = new StreamReader(@logfilepath);
-        //                    string allRead = testTxt.ReadToEnd();            //Reads the whole text file to the end
-        //                    testTxt.Close();                                 //Closes the text file after it is fully read.
-
-        //                    if (!Regex.IsMatch(allRead, CandidateMac))        // and if this MAC address hasn't already been assigned
-        //                    {
-        //                        Mac = CandidateMac;                            // then make the 16 digits our MAC address
-        //                    }
-        //                    else throw new Exception("Error: MAC address entered has already been assigned.");
-        //                }
-        //                else throw new Exception("Error: MAC address does not fall within designated range.  ");
-        //            }
-        //            else throw new Exception("Error: MAC address entered does not begin with the ThinkEco MAC header (0x80 0x4F 0x58).  Be careful not to type with the keyboard while using the barcode scanner.");
-        //        }
-        //        else
-        //        {
-        //            x++;
-        //            System.Threading.Thread.Sleep(100);
-        //        }
-        //    }
-        //    if (x == 400) throw new Exception("Test timed out.  Don't forget to scan barcode!");
-
-        //    System.Windows.Forms.Application.DoEvents();
-        //    return Mac;
-        //}
-
     }
 }

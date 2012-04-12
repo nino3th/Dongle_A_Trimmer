@@ -14,7 +14,8 @@ namespace Dongle_Test_Suite_2._1
     class Parameters
     {
         //constants
-        public const string mainfilepath = "C:\\Program Files\\ThinkEco Test Suite\\Dongle Test Module A 1.1";        
+        //public const string mainfilepath = "C:\\Program Files\\ThinkEco Test Suite\\Dongle Test Module A 1.1";        
+        public const string mainfilepath = "D:\\Project\\ThinkEco dongle test procedure\\Dongle Test Module A - Trimmer Source Code\\Dongle_A_Trimmer\\Dongle Test Suite 2.0\\res\\Dongle Test Module A 1.1";
         public const string settingsfilepath = mainfilepath + "\\Settings.txt";
         public const string testingfilepath = mainfilepath + "\\testing";
         public const string loadingfilepath = mainfilepath + "\\loading";
