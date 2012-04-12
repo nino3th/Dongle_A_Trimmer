@@ -1,0 +1,32 @@
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\Dongle Test Module A 1.0 - Trimmer.exe.config
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle_Test_Suite_2._1.MainForm.resources
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle_Test_Suite_2._1.Properties.Resources.resources
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\Dongle Test Module A 1.0 - Trimmer.exe
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\Dongle Test Module A 1.0 - Trimmer.pdb
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\FTD2XX_NET.dll
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle Test Module A 1.0 - Trimmer.exe
+C:\Users\admin\Documents\RepoMain\trunk\115200 BAUD PROGRAMS\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle Test Module A 1.0 - Trimmer.pdb
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle_Test_Suite_2._1.MainForm.resources
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle_Test_Suite_2._1.Properties.Resources.resources
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\FTD2XX_NET.dll
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\Dongle Test Module A 1.1 - Trimmer.exe.config
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\Dongle Test Module A 1.1 - Trimmer.exe
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\Dongle Test Module A 1.1 - Trimmer.pdb
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle Test Module A 1.1 - Trimmer.exe
+C:\Users\admin\Documents\0 - Testing Projects\Dongle Test and Load Programs\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle Test Module A 1.1 - Trimmer.pdb
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\Dongle Test Module A 1.1 - Trimmer.exe.config
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\Dongle Test Module A 1.1 - Trimmer.exe
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\bin\Debug\Dongle Test Module A 1.1 - Trimmer.pdb
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle_Test_Suite_2._1.MainForm.resources
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle_Test_Suite_2._1.Properties.Resources.resources
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle Test Module A 1.1 - Trimmer.exe
+D:\Project\ThinkEco dongle test procedure\Dongle Test Module A - Trimmer Source Code\Dongle Test Module A - Trimmer\Dongle Test Suite 2.0\obj\x86\Debug\Dongle Test Module A 1.1 - Trimmer.pdb
